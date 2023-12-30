@@ -1,0 +1,92 @@
+.TH SIMPLE SHELL 1 "December 30, 2023" "simple shell 1"
+
+.SH NAME
+
+Simple shell - a command-line interface
+    
+
+.SH SYNOPSIS
+
+.B #include "main.h"
+.br
+.B #include <stdio.h>
+.br
+.B #include <stdlib.h>
+.br
+.B #include <unistd.h>
+.br
+.B #include <string.h>
+.br
+.B #include <sys/wait.h>
+.br
+.B #include <sys/stat.h>
+.br
+
+.SH DESCRIPTION
+
+.PP
+The purpose of using simple shell is to be provided with a command-line interface to interact with the operating system. It interprets user commands and executes programs. This shell supports basic functionalities such as command execution, I/O redirection, environment variable management, and scripting.
+.PP
+Users can execute commands directly from the command line or specify a file containing commands. 
+.PP
+This shell serves as a fundamental tool for understanding command-line interfaces, process management, and basic scripting in an operating system environment.
+.PP
+
+.SH INTERACTIVE MODE COMMANDS
+.PP
+When running the shell in interactive mode, users have access to the following built-in commands:
+.PP
+\fBhelp\fR: Display help information about shell built-in commands. Usage: `help`.
+.PP
+\fBexit\fR: Exit the shell. Usage: `exit`.
+.PP
+These commands are available to provide assistance and control when using the shell interactively. The `help` command provides information about built-in functionalities, while `exit` allows users to terminate the shell session.
+
+.SH FUNCTIONS
+.TP
+.B char *find_path(char *command)
+Concentrates the command name with each directory specified in the PATH until it finds an executable file matching the command.
+.TP
+.B char *_getenv(char *env)
+Takes an environment varibale name as an argument and then searches in the array to find a match for it.
+
+.TP
+.B void _env(void)
+Iterates through the array and prints env varibales to the stdout by using "printf".
+.TP
+.B int execute(char **args)
+Handles the execution of commands by using \fBfork\fR.
+
+.SH USAGE
+To use the simple shell, include the header file \fImain.h\fR in your source code.
+
+.SH EXAMPLES
+The following example shows how to use commands and options on the shell and execute them:
+.PP
+To run a command:
+.PP
+\fB"ls -a"\fR
+.PP
+This executes the "ls -a" command using the shell in a non-interactive mode.
+.PP
+To execute commands from a file:
+.PP
+\fB child_funcs.c\fR
+.PP
+Running the child_funcs.c file with the shell executes the commands written in the script.
+.PP
+To start an interactive shell:
+.PP
+\fBsh\fR
+.PP
+This launches the shell in interactive mode, allowing users to enter commands directly and interactively.
+
+
+.SH AUTHORS
+Vali Mustafayev <valibm> and Fatima Mammadova <fatimasgit>
+
+.SH BUGS
+There are no known bugs from our point. In case you encounter a bug, report it to https://github.com/valibm/holbertonschool-simple_shell
+
+.SH COPYRIGHT
+Copyright (C) 2023 F.Mammadova and V.Mustafayev . This is free software; you are free to modify and redistribute it.
